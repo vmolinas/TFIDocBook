@@ -51,3 +51,22 @@ Hi username! You've successfully authenticated, but GitHub does not provide shel
 ```
 $ git@github.com:vmolinas/TFIDocBook.git
 ```
+
+## Pasos para hacer un push a main
+#### Verificar estado de archivos
+```
+$ git status
+```
+#### Agrega todos los archivos con cambios a stage
+```
+$ git add .
+```
+#### Commit de tus cambios
+```
+$ git commit -m "MENSAJE"
+```
+#### Sube tus cambios
+```
+$ git push origin <rama>
+# La <rama> principal es main
+```
