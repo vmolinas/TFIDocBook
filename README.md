@@ -45,3 +45,9 @@ Are you sure you want to continue connecting (yes/no)?
 ```
 Hi username! You've successfully authenticated, but GitHub does not provide shell access.
 ```
+
+## Para clonar este respositorio:
+### Ejecuta el siguiente comando en Git Bash.
+```
+$ git@github.com:vmolinas/TFIDocBook.git
+```
