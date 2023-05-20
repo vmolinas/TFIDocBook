@@ -10,6 +10,8 @@ tokens=("INICIO","TEXTO","RUTA","URL","TAG","DOCTYPE","ATAG","CTAG","APARA","CPA
 #     r'<([a-z]+)( [a-z]+="[^"]*")*>|<\/[a-z]+>'
 #     return t
 
+#hola mundo
+
 def t_newline(t):
     r'\n+'
     t.lexer.lineno += len(t.value)
