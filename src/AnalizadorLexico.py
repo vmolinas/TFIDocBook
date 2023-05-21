@@ -4,8 +4,9 @@ import warnings
 
 warnings.filterwarnings("ignore")
 
-tokens=("INICIO","TEXTO","RUTA","URL","TAG","DOCTYPE","ATAG","CTAG","ATITLE","CTITLE","AINFO","CINFO","AABSTRACT","CABSTRACT","AAUTHOR","CAUTHOR","APERSONNAME","CPERSONNAME","AFIRSTNAME","CFIRSTNAME","ASURNAME","CSURNAME","ADATE","CDATE","AYEAR","CYEAR","ACOPYRIGHT","CCOPYRIGHT","AADDRESS","CADDRESS","ACITY","CCITY","ASTATE","CSTATE","APOSTCODE","CPOSTCODE","ASTREET","CSTREET","AEMAIL","CEMAIL","APHONE","CPHONE","ASECTION","CSECTION","ASIMPLESECT","CSIMPLESECT","AITEMIZEDLIST","CITEMIZEDLIST","ALISTITEM","CLISTITEM","AEMPHASIS","CEMPHASIS","APARA","CPARA","ASIMPARA","CSIMPARA","ACOMMENT","CCOMMENT","AIMPORTANT","CIMPORTANT","AINFORMALTABLE","CINFORMALTABLE","ATGROUP","CTGROUP","ATHEAD","CTHEAD","ATFOOT","CTFOOT","ATBODY","CTBODY","AROW","CROW","AENTRY","CENTRY","AENTRYTBL","CENTRYTBL","AHOLDER","CHOLDER","AMEDIA")
-#<para>|<title>|<info>|<abstract>|<author>|<personname>|<firstname>|<surname>|<date>|<year>|<copyright>|<address>|<city>|<state>|<postcode>|<street>|<email>|<phone>|<section>|<simplesect>|<itemizedlist>|<listitem>|<emphasis>|<para>|<simpara>|<comment>|<important>|<informaltable>|<tgroup>|<thead>|<tfoot>|<tbody>|<row>|<entry>|<entrytbl>|<holder>|<mediaobject>|<videoObject>|<ImageObject>'
+tokens = ("INICIO", "TEXTO", "VIDIMALINK", "URL", "TAG", "ALINK", "CLINK", "DOCTYPE", "AARTICLE", "CARTICLE", "ATITLE", "CTITLE", "AINFO", "CINFO", "AABSTRACT", "CABSTRACT", "AAUTHOR", "CAUTHOR", "APERSONNAME", "CPERSONNAME", "AFIRSTNAME", "CFIRSTNAME", "ASURNAME", "CSURNAME", "ADATE", "CDATE", "AYEAR", "CYEAR", "ACOPYRIGHT", "CCOPYRIGHT", "AADDRESS", "CADDRESS", "ACITY", "CCITY", "ASTATE", "CSTATE", "APOSTCODE", "CPOSTCODE", "ASTREET", "CSTREET", "AEMAIL", "CEMAIL", "APHONE", "CPHONE", "ASECTION", "CSECTION",
+          "ASIMPLESECT", "CSIMPLESECT", "AITEMIZEDLIST", "CITEMIZEDLIST", "ALISTITEM", "CLISTITEM", "AEMPHASIS", "CEMPHASIS", "APARA", "CPARA", "ASIMPARA", "CSIMPARA", "ACOMMENT", "CCOMMENT", "AIMPORTANT", "CIMPORTANT", "AINFORMALTABLE", "CINFORMALTABLE", "ATGROUP", "CTGROUP", "ATHEAD", "CTHEAD", "ATFOOT", "CTFOOT", "ATBODY", "CTBODY", "AROW", "CROW", "AENTRY", "CENTRY", "AENTRYTBL", "CENTRYTBL", "AHOLDER", "CHOLDER", "AMEDIAOBJECT", "CMEDIAOBJECT", "AVIDEOOBJECT", "CVIDEOOBJECT", "AIMAGEOBJECT", "CIMAGEOBJECT")
+# <para>|<title>|<info>|<abstract>|<author>|<personname>|<firstname>|<surname>|<date>|<year>|<copyright>|<address>|<city>|<state>|<postcode>|<street>|<email>|<phone>|<section>|<simplesect>|<itemizedlist>|<listitem>|<emphasis>|<para>|<simpara>|<comment>|<important>|<informaltable>|<tgroup>|<thead>|<tfoot>|<tbody>|<row>|<entry>|<entrytbl>|<holder>|<mediaobject>|<videoObject>|<ImageObject>'
 
 # def t_TAG(t):
 #     r'<([a-z]+)( [a-z]+="[^"]*")*>|<\/[a-z]+>'
@@ -496,4 +497,5 @@ if __name__ == '__main__':
         if not tok:
             break      # No more input
         print(tok)
+
     input("presione enter para salir")
