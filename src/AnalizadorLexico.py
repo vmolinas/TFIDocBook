@@ -4,9 +4,17 @@ import warnings
 
 warnings.filterwarnings("ignore")
 
-tokens = ("INICIO", "TEXTO", "VIDIMALINK", "URI", "TAG","CLINK", "DOCTYPE", "AARTICLE", "CARTICLE", "ATITLE", "CTITLE", "AINFO", "CINFO", "AABSTRACT", "CABSTRACT", "AAUTHOR", "CAUTHOR", "APERSONNAME", "CPERSONNAME", "AFIRSTNAME", "CFIRSTNAME", "ASURNAME", "CSURNAME", "ADATE", "CDATE", "AYEAR", "CYEAR", "ACOPYRIGHT", "CCOPYRIGHT", "AADDRESS", "CADDRESS", "ACITY", "CCITY", "ASTATE", "CSTATE", "APOSTCODE", "CPOSTCODE", "ASTREET", "CSTREET", "AEMAIL", "CEMAIL", "APHONE", "CPHONE", "ASECTION", "CSECTION",
-          "ASIMPLESECT", "CSIMPLESECT", "AITEMIZEDLIST", "CITEMIZEDLIST", "ALISTITEM", "CLISTITEM", "AEMPHASIS", "CEMPHASIS", "APARA", "CPARA", "ASIMPARA", "CSIMPARA", "ACOMMENT", "CCOMMENT", "AIMPORTANT", "CIMPORTANT", "AINFORMALTABLE", "CINFORMALTABLE", "ATGROUP", "CTGROUP", "ATHEAD", "CTHEAD", "ATFOOT", "CTFOOT", "ATBODY", "CTBODY", "AROW", "CROW", "AENTRY", "CENTRY", "AENTRYTBL", "CENTRYTBL", "AHOLDER", "CHOLDER", "AMEDIAOBJECT", "CMEDIAOBJECT", "AVIDEOOBJECT", "CVIDEOOBJECT", "AIMAGEOBJECT", "CIMAGEOBJECT")
-# <para>|<title>|<info>|<abstract>|<author>|<personname>|<firstname>|<surname>|<date>|<year>|<copyright>|<address>|<city>|<state>|<postcode>|<street>|<email>|<phone>|<section>|<simplesect>|<itemizedlist>|<listitem>|<emphasis>|<para>|<simpara>|<comment>|<important>|<informaltable>|<tgroup>|<thead>|<tfoot>|<tbody>|<row>|<entry>|<entrytbl>|<holder>|<mediaobject>|<videoObject>|<ImageObject>'
+tokens = ("INICIO", "TEXTO", "VIDIMALINK", "URI", "TAG","CLINK", "DOCTYPE", "AARTICLE", "CARTICLE", "ATITLE", "CTITLE", "AINFO", "CINFO",
+          "AABSTRACT", "CABSTRACT", "AAUTHOR", "CAUTHOR", "APERSONNAME", "CPERSONNAME", "AFIRSTNAME", "CFIRSTNAME", "ASURNAME", "CSURNAME",
+          "ADATE", "CDATE", "AYEAR", "CYEAR", "ACOPYRIGHT", "CCOPYRIGHT", "AADDRESS", "CADDRESS", "ACITY", "CCITY", "ASTATE", "CSTATE",
+          "APOSTCODE", "CPOSTCODE", "ASTREET", "CSTREET", "AEMAIL", "CEMAIL", "APHONE", "CPHONE", "ASECTION", "CSECTION", "ASIMPLESECT",
+          "CSIMPLESECT", "AITEMIZEDLIST", "CITEMIZEDLIST", "ALISTITEM", "CLISTITEM", "AEMPHASIS", "CEMPHASIS", "APARA", "CPARA", "ASIMPARA",
+          "CSIMPARA", "ACOMMENT", "CCOMMENT", "AIMPORTANT", "CIMPORTANT", "AINFORMALTABLE", "CINFORMALTABLE", "ATGROUP", "CTGROUP", "ATHEAD",
+          "CTHEAD", "ATFOOT", "CTFOOT", "ATBODY", "CTBODY", "AROW", "CROW", "AENTRY", "CENTRY", "AENTRYTBL", "CENTRYTBL", "AHOLDER", "CHOLDER",
+          "AMEDIAOBJECT", "CMEDIAOBJECT", "AVIDEOOBJECT", "CVIDEOOBJECT", "AIMAGEOBJECT", "CIMAGEOBJECT")
+# <para>|<title>|<info>|<abstract>|<author>|<personname>|<firstname>|<surname>|<date>|<year>|<copyright>|<address>|<city>|<state>|
+# <postcode>|<street>|<email>|<phone>|<section>|<simplesect>|<itemizedlist>|<listitem>|<emphasis>|<para>|<simpara>|<comment>|<important>|
+# <informaltable>|<tgroup>|<thead>|<tfoot>|<tbody>|<row>|<entry>|<entrytbl>|<holder>|<mediaobject>|<videoObject>|<ImageObject>'
 
 # def t_TAG(t):
 #     r'<([a-z]+)( [a-z]+="[^"]*")*>|<\/[a-z]+>'
@@ -361,7 +369,7 @@ def t_CLINK(t):
 
 notrecognized = list()
 def t_error(t):
-    print("se encontró el siguiente token no reconocible ", t.value[0])
+    print("Se encontró el siguiente token no reconocible ", t.value[0])
     t.lexer.skip(1)
 
 lexer = lex.lex(debug=0)  # debug=1 si queremos ver q hace internamente
@@ -387,12 +395,12 @@ if __name__ == '__main__':
                 except EOFError:
                     break
         elif opcion == 2:
-            print("ingrese el nombre/direccion del archivo")
+            print("Ingrese el nombre/direccion del archivo")
             entra = input()
             f = open(entra, "r")
             entradaDoc = f.read()
         else:
-            print("ingrese una opcion valida")
+            print("Ingrese una opcion valida")
             quit()
 
     lexer.input(entradaDoc)
@@ -404,4 +412,4 @@ if __name__ == '__main__':
             break      # No more input
         print(tok)
 
-    input("presione enter para salir")
+    input("Presione ENTER para salir")
