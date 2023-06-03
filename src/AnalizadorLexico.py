@@ -4,375 +4,383 @@ import warnings
 
 warnings.filterwarnings("ignore")
 
-tokens = ("INICIO", "TEXTO", "VIDIMALINK", "URI", "TAG","CLINK", "DOCTYPE", "AARTICLE", "CARTICLE", "ATITLE", "CTITLE", "AINFO", "CINFO",
+tokens = ("INICIO", "TEXTO", "VIDIMALINK", "URI", "TAG", "CLINK", "DOCTYPE", "AARTICLE", "CARTICLE", "ATITLE", "CTITLE", "AINFO", "CINFO",
           "AABSTRACT", "CABSTRACT", "AAUTHOR", "CAUTHOR", "APERSONNAME", "CPERSONNAME", "AFIRSTNAME", "CFIRSTNAME", "ASURNAME", "CSURNAME",
           "ADATE", "CDATE", "AYEAR", "CYEAR", "ACOPYRIGHT", "CCOPYRIGHT", "AADDRESS", "CADDRESS", "ACITY", "CCITY", "ASTATE", "CSTATE",
           "APOSTCODE", "CPOSTCODE", "ASTREET", "CSTREET", "AEMAIL", "CEMAIL", "APHONE", "CPHONE", "ASECTION", "CSECTION", "ASIMPLESECT",
           "CSIMPLESECT", "AITEMIZEDLIST", "CITEMIZEDLIST", "ALISTITEM", "CLISTITEM", "AEMPHASIS", "CEMPHASIS", "APARA", "CPARA", "ASIMPARA",
           "CSIMPARA", "ACOMMENT", "CCOMMENT", "AIMPORTANT", "CIMPORTANT", "AINFORMALTABLE", "CINFORMALTABLE", "ATGROUP", "CTGROUP", "ATHEAD",
           "CTHEAD", "ATFOOT", "CTFOOT", "ATBODY", "CTBODY", "AROW", "CROW", "AENTRY", "CENTRY", "AENTRYTBL", "CENTRYTBL", "AHOLDER", "CHOLDER",
-          "AMEDIAOBJECT", "CMEDIAOBJECT", "AVIDEOOBJECT", "CVIDEOOBJECT", "AIMAGEOBJECT", "CIMAGEOBJECT")
-# <para>|<title>|<info>|<abstract>|<author>|<personname>|<firstname>|<surname>|<date>|<year>|<copyright>|<address>|<city>|<state>|
-# <postcode>|<street>|<email>|<phone>|<section>|<simplesect>|<itemizedlist>|<listitem>|<emphasis>|<para>|<simpara>|<comment>|<important>|
-# <informaltable>|<tgroup>|<thead>|<tfoot>|<tbody>|<row>|<entry>|<entrytbl>|<holder>|<mediaobject>|<videoObject>|<ImageObject>'
+          "AMEDIAOBJECT", "CMEDIAOBJECT", "AVIDEOOBJECT", "CVIDEOOBJECT", "AIMAGEOBJECT", "CIMAGEOBJECT", "ASECT1", "CSECT1")
 
-# def t_TAG(t):
-#     r'<([a-z]+)( [a-z]+="[^"]*")*>|<\/[a-z]+>'
-#     return t
+# Mensaje por defecto para mostrar en la salida
+def imprimirMensaje(t):
+    print("*Etiqueta reconocida: " + t.value + " [Linea:" , t.lineno,"]")
 
 def t_newline(t):
     r'\n+'
     t.lexer.lineno += len(t.value)
 
+# Espacios, salto de linea y tabulacion
+# No se devuelve este token porque no afecta al leer
 def t_blank(t):
     r'(\s)+'
-    # Espacios, salto de linea y tabulacion
-    # No se devuelve este token porque no afecta al leer
 
 def t_URI(t):
     '(http|ftp)(s)?://[^<>&]*([[^<>&]+:[^<>&]+?]?[[\\[^<>&]]+?[#[^<>&]+]?])?'
-    return t
+    print("*Reconocido URL: " + t.value + " [Linea:" , t.lineno,"]")
 
 def t_VIDIMALINK(t):
     r'<(?:imagedata|videodata|link)\s+(fileref|xlink:href)\s*=\s*"((http|ftp)(s)?://)?[^<>&]*([[^<>&]+:[^<>&]+?]?[[\\[^<>&]]+?[#[^<>&]+]?])?"[/]?>'
-    return t
-# protocolo://dominio:puerto/ruta#fragmento
-# <link xlink:href = “URI”>ETICOM4</link>
+    print("*Reconocido URL: " + t.value + " [Linea:" , t.lineno,"]")
+    # protocolo://dominio:puerto/ruta#fragmento
+    # <link xlink:href = “URI”>ETICOM4</link>
 
 def t_APARA(t):
     r'<para>'
-    return t
+    imprimirMensaje(t)
 
 def t_CPARA(t):
     r'</para>'
-    return t
+    imprimirMensaje(t)
+
+def t_ASECT1(t):
+    r'<sect1>'
+    imprimirMensaje(t)
+
+def t_CSECT1(t):
+    r'</sect1>'
+    imprimirMensaje(t)
 
 def t_ASIMPARA(t):
     r'<simpara>'
-    return t
+    imprimirMensaje(t)
 
 def t_CSIMPARA(t):
     r'</simpara>'
-    return t
+    imprimirMensaje(t)
 
 def t_AARTICLE(t):
     r'<article>'
-    return t
+    imprimirMensaje(t)
 
 def t_CARTICLE(t):
     r'</article>'
-    return t
+    imprimirMensaje(t)
 
 def t_AINFO(t):
     r'<info>'
-    return t
+    imprimirMensaje(t)
 
 def t_CINFO(t):
     r'</info>'
-    return t
+    imprimirMensaje(t)
 
 def t_ATITLE(t):
     r'<title>'
-    return t
+    imprimirMensaje(t)
 
 def t_CTITLE(t):
     r'</title>'
-    return t
+    imprimirMensaje(t)
 
 def t_AABSTRACT(t):
     r'<abstract>'
-    return t
+    imprimirMensaje(t)
 
 def t_CABSTRACT(t):
     r'</abstract>'
-    return t
+    imprimirMensaje(t)
 
 def t_AAUTHOR(t):
     r'<author>'
-    return t
+    imprimirMensaje(t)
 
 def t_CAUTHOR(t):
     r'</author>'
-    return t
+    imprimirMensaje(t)
 
 def t_APERSONNAME(t):
     r'<personname>'
-    return t
+    imprimirMensaje(t)
 
 def t_CPERSONNAME(t):
     r'</personname>'
-    return t
+    imprimirMensaje(t)
 
 def t_AFIRSTNAME(t):
     r'<firstname>'
-    return t
+    imprimirMensaje(t)
 
 def t_CFIRSTNAME(t):
     r'</firstname>'
-    return t
+    imprimirMensaje(t)
 
 def t_ASURNAME(t):
     r'<surname>'
-    return t
+    imprimirMensaje(t)
 
 def t_CSURNAME(t):
     r'</surname>'
-    return t
+    imprimirMensaje(t)
 
 def t_ADATE(t):
     r'<date>'
-    return t
+    imprimirMensaje(t)
 
 def t_CDATE(t):
     r'</date>'
+    imprimirMensaje(t)
 
 def t_AYEAR(t):
     r'<year>'
-    return t
+    imprimirMensaje(t)
 
 def t_CYEAR(t):
     r'</year>'
-    return t
+    imprimirMensaje(t)
 
 def t_ACOPYRIGHT(t):
     r'<copyright>'
-    return t
+    imprimirMensaje(t)
 
 def t_CCOPYRIGHT(t):
     r'</copyright>'
-    return t
+    imprimirMensaje(t)
 
 def t_AADDRESS(t):
     r'<address>'
-    return t
+    imprimirMensaje(t)
 
 def t_CADDRESS(t):
     r'</address>'
-    return t
+    imprimirMensaje(t)
 
 def t_ACITY(t):
     r'<city>'
-    return t
+    imprimirMensaje(t)
 
 def t_CCITY(t):
     r'</city>'
-    return t
+    imprimirMensaje(t)
 
 def t_ASTATE(t):
     r'<state>'
-    return t
+    imprimirMensaje(t)
 
 def t_CSTATE(t):
     r'</state>'
-    return t
+    imprimirMensaje(t)
 
 def t_APOSTCODE(t):
     r'<postcode>'
-    return t
+    imprimirMensaje(t)
 
 def t_CPOSTCODE(t):
     r'</postcode>'
-    return t
+    imprimirMensaje(t)
 
 def t_ASTREET(t):
     r'<street>'
-    return t
+    imprimirMensaje(t)
 
 def t_CSTREET(t):
     r'</street>'
-    return t
+    imprimirMensaje(t)
 
 def t_AEMAIL(t):
     r'<email>'
-    return t
+    imprimirMensaje(t)
 
 def t_CEMAIL(t):
     r'</email>'
-    return t
+    imprimirMensaje(t)
 
 def t_APHONE(t):
     r'<phone>'
-    return t
+    imprimirMensaje(t)
 
 def t_CPHONE(t):
     r'</phone>'
-    return t
+    imprimirMensaje(t)
 
 def t_ASECTION(t):
     r'<section>'
-    return t
+    imprimirMensaje(t)
 
 def t_CSECTION(t):
     r'</section>'
-    return t
+    imprimirMensaje(t)
 
 def t_ASIMPLESECTION(t):
     r'<simplesection>'
-    return t
+    imprimirMensaje(t)
 
 def t_CSIMPLESECTION(t):
     r'</simplesection>'
-    return t
+    imprimirMensaje(t)
 
 def t_AITEMIZEDLIST(t):
     r'<itemizedlist>'
-    return t
+    imprimirMensaje(t)
 
 def t_CITEMIZEDLIST(t):
     r'</itemizedlist>'
-    return t
+    imprimirMensaje(t)
 
 def t_ALISTITEM(t):
     r'<listitem>'
-    return t
+    imprimirMensaje(t)
 
 def t_CLISTITEM(t):
     r'</listitem>'
-    return t
+    imprimirMensaje(t)
 
 def t_AEMPHASIS(t):
     r'<emphasis>'
-    return t
+    imprimirMensaje(t)
 
 def t_CEMPHASIS(t):
     r'</emphasis>'
-    return t
+    imprimirMensaje(t)
 
 def t_ACOMMENT(t):
     r'<comment>'
-    return t
+    imprimirMensaje(t)
 
 def t_CCOMMENT(t):
     r'</comment>'
-    return t
+    imprimirMensaje(t)
 
 def t_AIMPORTANT(t):
     r'<important>'
-    return t
+    imprimirMensaje(t)
 
 def t_CIMPORTANT(t):
     r'</important>'
-    return t
+    imprimirMensaje(t)
 
 def t_AINFORMALTABLE(t):
     r'<informaltable>'
-    return t
+    imprimirMensaje(t)
 
 def t_CINFORMALTABLE(t):
     r'</informaltable>'
-    return t
+    imprimirMensaje(t)
 
 def t_ATGROUP(t):
     r'<tgroup>'
-    return t
+    imprimirMensaje(t)
 
 def t_CTGROUP(t):
     r'</tgroup>'
-    return t
+    imprimirMensaje(t)
 
 def t_ATHEAD(t):
     r'<thead>'
-    return t
+    imprimirMensaje(t)
 
 def t_CTHEAD(t):
     r'</thead>'
-    return t
+    imprimirMensaje(t)
 
 def t_ATFOOT(t):
     r'<tfoot>'
-    return t
+    imprimirMensaje(t)
 
 def t_CTFOOT(t):
     r'</tfoot>'
-    return t
+    imprimirMensaje(t)
 
 def t_ATBODY(t):
     r'<tbody>'
-    return t
+    imprimirMensaje(t)
 
 def t_CTBODY(t):
     r'</tbody>'
-    return t
+    imprimirMensaje(t)
 
 def t_AROW(t):
     r'<row>'
-    return t
+    imprimirMensaje(t)
 
 def t_CROW(t):
     r'</row>'
-    return t
+    imprimirMensaje(t)
 
 def t_AENTRY(t):
     r'<entry>'
-    return t
+    imprimirMensaje(t)
 
 def t_CENTRY(t):
     r'</entry>'
-    return t
+    imprimirMensaje(t)
 
 def t_AENTRYBL(t):
     r'<entrybl>'
-    return t
+    imprimirMensaje(t)
 
 def t_CENTRYBL(t):
     r'</entrybl>'
-    return t
+    imprimirMensaje(t)
 
 def t_AHOLDER(t):
     r'<holder>'
-    return t
+    imprimirMensaje(t)
 
 def t_CHOLDER(t):
     r'</holder>'
-    return t
+    imprimirMensaje(t)
 
 def t_AMEDIAOBJECT(t):
     r'<mediaobject>'
-    return t
+    imprimirMensaje(t)
 
 def t_CMEDIAOBJECT(t):
     r'</mediaobject>'
-    return t
+    imprimirMensaje(t)
 
 def t_AVIDEOOBJECT(t):
-    r'<videoObject>'
-    return t
+    r'<videoobject>'
+    imprimirMensaje(t)
 
 def t_CVIDEOOBJECT(t):
-    r'</videoObject>'
-    return t
+    r'</videoobject>'
+    imprimirMensaje(t)
 
 def T_AIMAGEOBJECT(t):
-    r'<ImageObject>'
-    return t
+    r'<imageobject>'
+    imprimirMensaje(t)
 
 def T_CIMAGEOBJECT(t):
-    r'</ImageObject>'
-    return t
+    r'</imageobject>'
+    imprimirMensaje(t)
 
 def t_DOCTYPE(t):
     r'<\!DOCTYPE[\s]+ (article|book|chapter)[\s]*>'
-    return t
+    imprimirMensaje(t)
 
 def t_INICIO(t):
     r'<\?xml[\ ]+(version[\ ]*=[\ ]*\"\d.\d\" [\ ]+)?(encoding[\ ]*=[\ ]*\" [\S]+ \"[\ ]*)? \?>'
-    return t
+    imprimirMensaje(t)
 
 def t_TEXTO(t):
     r'[^<>&]+'
-    # EL TEXTO ENCUENTRA TODO SALVO ESTOS "< >" CARACTERES QUE SON INVALIDOS PARA CUALQUIER TEXTO Y URL
-    return t
+    print("*Reconocido texto: " + t.value + " [Linea:" , t.lineno,"]")
 
 def t_CLINK(t):
     r'</link>'
-    return t
+    imprimirMensaje(t)
 
 notrecognized = list()
+
 def t_error(t):
-    print("Se encontró el siguiente token no reconocible ", t.value[0])
+    # print("Se encontró el siguiente token no reconocible ", t.value[0])
+    print("Token no reconocido: ", t.value + " [Linea:" , t.lineno,"]")
     t.lexer.skip(1)
 
 lexer = lex.lex(debug=0)  # debug=1 si queremos ver q hace internamente
+
 if __name__ == '__main__':
     # si empieza en espacios vacios es invalido el docbook
     # si encuentra los siguientes caracteres es invalido: & < >1
