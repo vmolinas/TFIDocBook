@@ -1,72 +1,35 @@
-# TFIDocBook
-## Crear llave SSH y agregar a cuenta de Github
-#### 1. Abra Git Bash.
-#### 2. Pega el siguiente texto, que sustituye tu dirección de correo electrónico en GitHub.
-```
-ssh-keygen -t ed25519 -C "your_email@example.com"
-```
-##### Cuando se te pida: "Introduce un archivo en el que se pueda guardar la clave", teclea Enter para aceptar la ubicación de archivo predeterminada. Ten en cuenta que si ya creaste claves SSH anteriormente, ssh-keygen puede pedirte que vuelvas a escribir otra clave. En este caso, se recomienda crear una clave SSH con nombre personalizado. Para ello, escribe la ubicación de archivo predeterminada y reemplaza id_ssh_keyname por el nombre de clave personalizado.
+# Analizador Léxico y Sintáctico para el lenguaje DocBook
+
+Este proyecto de la facultad consiste en desarrollar un analizador léxico y sintáctico para el lenguaje DocBook utilizando la biblioteca PLY (Python Lex-Yacc). El objetivo principal del proyecto es analizar documentos escritos en el formato DocBook y verificar si cumplen con la estructura y sintaxis correctas.
+
+## Instalación
+
+Para ejecutar el proyecto, sigue los siguientes pasos:
+
+> Asegúrate de tener Python 3 instalado en tu sistema.
+
+Clona el repositorio desde GitHub:
 
 ```
-> Enter a file in which to save the key (/c/Users/YOU/.ssh/id_ALGORITHM):[Press enter]
-```
-#### 3. Cuando se le pida, escriba una frase de contraseña segura. Para obtener más información, vea «Trabajar con contraseñas de clave SSH».
-```> Enter passphrase (empty for no passphrase): [Type a passphrase]
-> Enter same passphrase again: [Type passphrase again]
+git clone https://github.com/vmolinas/TFIDocBook.git
 ```
 
+Navega hasta el directorio del proyecto:
 
-## Agregar una clave SSH nueva a tu cuenta de GitHub
-##### Si tu archivo de llave SSH pública tiene un nombre diferente que en el código de ejemplo, modifica el nombre de archivo para que coincida con tu configuración actual. Al copiar tu clave, no agregues líneas nuevas o espacios en blanco.
 ```
-$ clip < ~/.ssh/id_ed25519.pub
-  # Copies the contents of the id_ed25519.pub file to your clipboard
-```
-#### 1. Ve a https://github.com/settings/keys
-#### 2. Haga clic en "New SSH key".
-#### 3. Escribe el nombre de la clave SSH en el campo "Title".
-#### 4. Pega el contenido de la clave SSH en el campo "Key".
-#### 5. Haga clic en "Add SSH key".
-
-## Probar tu conexión SSH
-#### 1. Para probar la conexión SSH, ejecuta el siguiente comando en Git Bash.
-```
-$ ssh -T git@github.com
-# Attempts to ssh to GitHub
-```
-#### Puedes ver una advertencia como la siguiente:
-```
-The authenticity of host 'github.com (192.30.255.112)' can't be established.
-ECDSA key fingerprint is SHA256:....
-RSA key fingerprint is SHA256:....
-Are you sure you want to continue connecting (yes/no)?
-```
-#### 2. Compruebe que la huella digital del mensaje que ve coincide con la huella digital de clave pública de GitHub. En caso afirmativo, escriba yes:.
-```
-Hi username! You've successfully authenticated, but GitHub does not provide shell access.
+cd TFIDocBook/src/
 ```
 
-## Para clonar este respositorio:
-#### Ejecuta el siguiente comando en Git Bash.
+### Uso
+
+Para ejecutar el programa, sigue estos pasos:
+
+> Asegúrate de estar en el directorio raíz del proyecto.
+Ejecuta el archivo main.py usando Python:
+
 ```
-$ git@github.com:vmolinas/TFIDocBook.git
+python main.py
 ```
 
-## Pasos para hacer un push a main
-#### Verificar estado de archivos
-```
-$ git status
-```
-#### Agrega todos los archivos con cambios a stage
-```
-$ git add .
-```
-#### Commit de tus cambios
-```
-$ git commit -m "MENSAJE"
-```
-#### Sube tus cambios
-```
-$ git push origin <rama>
-# La <rama> principal es main
-```
+El programa solicitará la ruta del archivo DocBook que deseas analizar. Ingresa la ruta completa del archivo o simplemente arrastra el archivo al terminal y presiona Enter.
+El analizador léxico y sintáctico procesará el archivo y mostrará los resultados en la salida. Se indicará si el documento cumple con la estructura y sintaxis correctas del lenguaje DocBook.
