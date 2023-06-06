@@ -17,6 +17,8 @@ tokens = ("INICIO", "TEXTO", "VIDIMALINK", "URI", "TAG", "CLINK", "DOCTYPE", "AA
 def imprimirMensaje(t):
     print("*Etiqueta reconocida: " + t.value + " [Linea:" , t.lineno,"]")
 
+#hola mundo
+
 def t_newline(t):
     r'\n+'
     t.lexer.lineno += len(t.value)
