@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE article>
+
+<article>
+  <info>
+    <title>Docbook a HTML</title>
+    <author>
+      <firstname>Carlos</firstname>
+      <surname>Trespalacios</surname>
+      <firstname>Victor</firstname>
+      <surname>Molinas</surname>
+      <firstname>Micaela</firstname>
+      <surname>Gonzalez</surname>
+    </author>
+    
+  </info>
+  <para>Esto es un parrafo luego del info</para>
+  <section>
+    <info>
+      <title>Introduccion</title>
+    </info>
+    <para>En resumen, convertir tu documento DocBook a HTML te permitirá transformar tu documentación técnica en un formato web ampliamente compatible y fácilmente accesible. A continuación, trabajaremos juntos para realizar esta conversión y lograr un resultado visualmente atractivo y funcional.</para>
+  </section>
+
+  <section>
+    <info>
+      <title>Esto es un titulo dentro de un section</title>
+    </info>
+    <para>Este titulo es mas chico</para>
+  </section>
+
+  <section>
+    <info>
+      <title>Este titulo es un info dentro de un section</title>
+    </info>
+    <para>This is the results section.</para>
+    <para>Este es un link de prueba<link xlink:href="https://frre.cvg.utn.edu.ar/login/index.php">www.frre.cvg.utn.edu.ar/login/index.php</para>
+    <informaltable>
+      <tgroup>
+        <thead>
+          <row>
+            <entry>Encabezado de la columna 1</entry>
+            <entry>Encabezado de la columna 2</entry>
+            <entry>Encabezado de la columna 3</entry>
+          </row>
+        </thead>
+        <tbody>
+          <row>
+            <entry>Contenido de la celda 1</entry>
+            <entry>Contenido de la celda 2</entry>
+            <entry>Contenido de la celda 3</entry>
+          </row>
+          <row>
+            <entry>Contenido de la celda 4</entry>
+            <entry>Contenido de la celda 5</entry>
+            <entry>Contenido de la celda 6</entry>
+          </row>
+        </tbody>
+      </tgroup>
+    </informaltable>
+  </section>
+</article>

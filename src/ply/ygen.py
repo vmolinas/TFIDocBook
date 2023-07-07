@@ -25,7 +25,7 @@ def get_source_range(lines, tag):
 
     return (start_index + 1, end_index)
 
-def filter_section(lines, tag):
+def filter_sectionion(lines, tag):
     filtered_lines = []
     include = True
     tag_text = '#--! %s' % tag
@@ -49,13 +49,13 @@ def main():
     # Get the original source
     orig_lines = lines[parse_start:parse_end]
 
-    # Filter the DEBUG sections out
-    parseopt_lines = filter_section(orig_lines, 'DEBUG')
+    # Filter the DEBUG sectionions out
+    parseopt_lines = filter_sectionion(orig_lines, 'DEBUG')
 
-    # Filter the TRACKING sections out
-    parseopt_notrack_lines = filter_section(parseopt_lines, 'TRACKING')
+    # Filter the TRACKING sectionions out
+    parseopt_notrack_lines = filter_sectionion(parseopt_lines, 'TRACKING')
 
-    # Replace the parser source sections with updated versions
+    # Replace the parser source sectionions with updated versions
     lines[parseopt_notrack_start:parseopt_notrack_end] = parseopt_notrack_lines
     lines[parseopt_start:parseopt_end] = parseopt_lines
 

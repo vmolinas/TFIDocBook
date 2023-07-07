@@ -339,7 +339,7 @@ class LRParser:
     # This is the debugging enabled version of parse().  All changes made to the
     # parsing engine should be made here.   Optimized versions of this function
     # are automatically created by the ply/ygen.py script.  This script cuts out
-    # sections enclosed in markers such as this:
+    # sectionions enclosed in markers such as this:
     #
     #      #--! DEBUG
     #      statements
@@ -490,7 +490,7 @@ class LRParser:
                         #--! TRACKING
 
                         # !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
-                        # The code enclosed in this section is duplicated
+                        # The code enclosed in this sectionion is duplicated
                         # below as a performance optimization.  Make sure
                         # changes get made in both locations.
 
@@ -534,7 +534,7 @@ class LRParser:
                         targ = [sym]
 
                         # !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
-                        # The code enclosed in this section is duplicated
+                        # The code enclosed in this sectionion is duplicated
                         # above as a performance optimization.  Make sure
                         # changes get made in both locations.
 
@@ -810,7 +810,7 @@ class LRParser:
                         #--! TRACKING
 
                         # !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
-                        # The code enclosed in this section is duplicated
+                        # The code enclosed in this sectionion is duplicated
                         # below as a performance optimization.  Make sure
                         # changes get made in both locations.
 
@@ -851,7 +851,7 @@ class LRParser:
                         targ = [sym]
 
                         # !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
-                        # The code enclosed in this section is duplicated
+                        # The code enclosed in this sectionion is duplicated
                         # above as a performance optimization.  Make sure
                         # changes get made in both locations.
 
@@ -1107,7 +1107,7 @@ class LRParser:
 
 
                         # !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
-                        # The code enclosed in this section is duplicated
+                        # The code enclosed in this sectionion is duplicated
                         # below as a performance optimization.  Make sure
                         # changes get made in both locations.
 
@@ -1143,7 +1143,7 @@ class LRParser:
                         targ = [sym]
 
                         # !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
-                        # The code enclosed in this section is duplicated
+                        # The code enclosed in this sectionion is duplicated
                         # above as a performance optimization.  Make sure
                         # changes get made in both locations.
 

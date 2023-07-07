@@ -1,0 +1,39 @@
+<!DOCTYPE article>
+<article>
+    <info>
+        <title>El titulo del articulo</title>
+        <author>
+            <firstname>Juan</firstname>
+            <surname>Perez</surname>
+        </author>
+    </info>
+    <title>HOLA SOY UN TITULO</title>
+    <important>
+        <title>hola</title>
+        <para>soyunparaffon</para>
+    </important>
+    <section>
+        <title>Titulo para la seccion 1</title>
+        <para>
+            Esto es un parrafo
+        </para>
+        <itemizedlist>
+                <listitem>
+                    <para> Numerr <itemizedlist>
+                            <listitem>
+                                <para>Se utilizarán números enteros</para>
+                            </listitem>
+                            <listitem>
+                                <para>
+                                    Todos ellos serán tratados connuntamente como números.
+                                </para>
+                            </listitem>
+                        </itemizedlist>
+                    </para>
+                </listitem>
+        </itemizedlist>
+        <para>
+            Esto es un parrafo2222
+        </para>
+    </section>
+</article>

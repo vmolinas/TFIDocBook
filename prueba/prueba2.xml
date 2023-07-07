@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE article>
+
+<article>
+  <info>
+    <author>
+      <firstname>John</firstname>
+      <surname>Doe</surname>
+    </author>
+    <date>2023-06-13</date>
+    <copyright>
+      <year>2023</year>
+      <holder>John Doe</holder>
+    </copyright>
+    <title>Sample Article</title>
+  </info>
+  <para>paraque</para>
+  <section>
+    <info>
+      <title>Introduction</title>
+    </info>
+    <para>This is the introduction section.</para>
+  </section>
+
+  <section>
+    <info>
+      <title>Methods</title>
+    </info>
+    <para>This is the methods section.</para>
+  </section>
+
+  <section>
+    <info>
+      <title>Results</title>
+    </info>
+    <para>This is the results section.</para>
+    <mediaobject>
+      <videoobject>
+        <videodata fileref="http://www.example.com/videos/intro.mp4"/>
+      </videoobject>
+    </mediaobject>
+
+  </section>
+</article>
